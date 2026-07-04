@@ -89,13 +89,21 @@ window.onload = function(){
     const params = new URLSearchParams(window.location.search);
 
     const name = params.get("name");
-    const price = params.get("price");
+    const qty = params.get("qty");
+    const price = params.get("price");   // ⭐ เพิ่มบรรทัดนี้
     const img = params.get("img");
 
     if(name){
 
-        document.getElementById("flowerName").innerHTML = "🌷 " + name + " 🌷";
-        document.getElementById("flowerPrice").innerHTML = "ราคา " + price + " บาท / 1 ดอก";
+        document.getElementById("flowerName").innerHTML =
+        "🌷 " + name + " 🌷";
+
+        document.getElementById("flowerPrice").innerHTML =
+        `
+        จำนวน : ${qty} ดอก<br>
+        ราคารวม : ${price} บาท
+        `;
+
         document.getElementById("flowerImg").src = img;
 
     }
