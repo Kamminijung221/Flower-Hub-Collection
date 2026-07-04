@@ -66,10 +66,13 @@ function addToCart(){
 
 document.getElementById("cartMessage").style.display="block";
 
-const params=window.location.search;
+const params = new URLSearchParams(window.location.search);
+
+params.set("qty", qty);
+params.set("price", price * qty);
 
 setTimeout(function(){
-window.location.href="order.html"+params;
+    window.location.href = "order.html?" + params.toString();
 },1000);
 
 }
